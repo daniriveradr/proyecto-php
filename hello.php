@@ -13,14 +13,36 @@
     
     ];
 
-    $paises = array(
-        'México' => 'Monterrey', 'Querétaro', 'Guadalajara',
+
+    $array = [
+        "México" => "Monterrey", "Querétaro", "Guadalajara",
         'Colombia' => 'Bogotá', 'Quibdo', 'Cartegena',
         'USA' => 'New York', 'Texas', 'Miami',
         'Brasil' => 'Brasilia', 'Sao Paulo', 'Rio de Janerio',
         'España' => 'Barcelona', 'Madrid', 'Galicia',
+    ];
 
-    );
+    $paises = [
+        'Venezuela' => [
+            'Caracas', 'Maracaibo', 'San Cristóbal'
+        ],
+    
+        'Colombia' => [
+            'Bogotá', 'Cali', 'Medellín'
+        ],
+    
+        'Argentina' => [
+            'Buenos Aires', 'Córdoba', 'Mendoza'
+        ],
+    
+        'Spain' => [
+            'Madrid', 'Barcelona', 'Valencia'
+        ],
+    
+        'Estados Unidos' => [
+            'Nueva York', 'Los Angeles', 'San Francisco'
+        ],
+    ];
 
     $valores = [23, 54, 32, 67, 34, 78, 98, 56, 21, 34, 57, 92, 12, 5, 61];
     sort($valores);
@@ -60,11 +82,16 @@
 
         <h5>
             <?php
-                foreach ($paises as $pais => $ciudades) {
-                    echo '<li>' . $pais .': '. $ciudades . '</li>';
+                foreach($paises as $pais => $ciudades){
+                    //Se asigna el valor para cada pais
+                    echo "<ul>$pais:  ";
+                    foreach($ciudades as $ciudad){
+                        // Y luego el valor asignado se guarda en la varuible de ciudades
+                        echo "<li> $ciudad</li>";
+                    }
+                    echo "</ul>";
                 }
-            ?>
-            
+            ?>               
         </h5>
 
         <h2>Ejericio 3</h2>
@@ -79,9 +106,32 @@
             
             //    var_dump($valores);
             
-            
+            $bigger=[];
+                $smaller = [];
+                rsort($valores); //Ordenar arreglo de mayor a menor
+                for($index=0; $index<3; $index++){
+                $bigger[$index]= $valores[$index];
+                }
+                $size = count($valores);
+
+                sort($valores); //Ordenar arreglo de menor a mayor
+                for($index=0; $index<3; $index++){
+                $smaller[$index]= $valores[$index];
+                }
+
+                echo "Los numero más grandes son: \r";
+                foreach ($bigger as $value) {
+                echo $value.' ';
+                }
+
+                echo "\rLos numero más pequeños son: \r";
+                foreach ($smaller as $value) {
+                echo $value.' ';
+                }
             ?>            
         </h5>
+
+        
         
 
     </body>
